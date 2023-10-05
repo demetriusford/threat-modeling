@@ -1,3 +1,5 @@
+### Part I.
+
 **Q**: Where can the payload come from?  
 **A**: A web request that's sent from either the mobile or the web client
 
@@ -17,20 +19,20 @@
 - Decommission all unmaintained servers (this could potentially leak the service's infrastructure)
 
 **Q**: Does the WAF mitigate the XSS risk to any degree?  
-**A**: A WAF can mitigate against *some* XSS attacks (it's particularly effective against catching stored and reflective), but if an adversary found a stored DOM-based injection, the server would never receive the input from the browser, rendering server-side filters useless. Likewise, many 0-day [bypasses](https://github.com/waf-bypass-maker/waf-community-bypasses/blob/main/payloads.twitter.csv) are disclosed and made publicly available for security researchers 
+**A**: A WAF can mitigate against *some* XSS attacks (it's particularly effective against catching stored and reflective), but if an adversary found a stored DOM-based injection, the server would never receive the input from the browser, rendering server-side filters useless. Likewise, many 0-day [disclosures](https://github.com/waf-bypass-maker/waf-community-bypasses/blob/main/payloads.twitter.csv) are made publicly available for security professionals 
 
 **Q**: What other activities do you think may need to occur here?  
-**A**: WAFs are simply just a compensating control that need to be fine tuned to ensure that they work effectively. Here are some things to consider:
+**A**: WAFs are a compensating control that need to be fine tuned to ensure they work effectively. With that being said, here are some key guidelines:
 
-- Check if HTML escaping has been disabled in the web framework's configuration
-- Inspect the source code for any variables that might be marked as "safe"
-- Sanitize client input at the application and API level. Specifically, variables that can be controlled (e.g., query strings, POST data, headers, and cookies)
-- Implement a strict content-security policy to place restrictions on what scripts are allowed to be loaded
+- Check if HTML escaping has been disabled in the web application's framework
+- Check the source code for any variables that might be marked as "safe"
+- Sanitize input at the application and API level. Specifically, variables that can be controlled by the client (e.g., query strings, POST data, HTTP headers, and cookies)
+- Enforce a strict content-security policy to allow/block specific scripts 
 - Enforce content types for each request
-- Add the HTTP header `X-Content-Type-Options` (nosniff) to prevent the browser from automatically detecting the content type
+- Configure the HTTP header `X-Content-Type-Options` (nosniff) to stop the browser from automatically detecting the content type
 
----
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### Part II.
 
 ![](./payments.png)
-
-
