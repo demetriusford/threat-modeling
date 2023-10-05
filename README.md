@@ -29,5 +29,6 @@
 - Enforce content types for each request
 - Add the HTTP header `X-Content-Type-Options` (nosniff) to prevent the browser from automatically detecting the content type
 
+![](./payments.png)
 
 
