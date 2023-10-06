@@ -1,4 +1,4 @@
-### Part I.
+### Part I. (Questions)
 
 **Q**: Where can the payload come from?  
 **A**: A web request that's sent from either the mobile or the web client
@@ -19,7 +19,7 @@
 - Decommission all unmaintained servers (this could potentially leak the service's infrastructure)
 
 **Q**: Does the WAF mitigate the XSS risk to any degree?  
-**A**: A WAF can mitigate against *some* XSS attacks. It's particularly effective against catching stored and reflective XSS. However, if an attacker found a stored DOM-based injection, the server would never receive the input from the browser, rendering server-side filters useless. Likewise, many 0-day [disclosures](https://github.com/waf-bypass-maker/waf-community-bypasses/blob/main/payloads.twitter.csv) are made publicly available for security professionals 
+**A**: A WAF can mitigate against *some* XSS injections. It's particularly effective against catching stored and reflective XSS. However, a stored DOM-based XSS would never receive the input from the browser, rendering server-side filters useless. Likewise, many 0-day [disclosures](https://github.com/waf-bypass-maker/waf-community-bypasses/blob/main/payloads.twitter.csv) are made publicly available for security professionals 
 
 **Q**: What other activities do you think may need to occur here?  
 **A**: WAFs are a compensating control that need to be fine tuned to ensure they work effectively. With this in mind, here are some key recommendations:
@@ -29,10 +29,10 @@
 - Sanitize input at the application and API level. Specifically, variables that can be controlled by the client (e.g., query strings, POST data, HTTP headers, and cookies)
 - Enforce a strict content-security policy to allow/block specific scripts 
 - Enforce content types for each request
-- Configure the HTTP header `X-Content-Type-Options` with `nosniff` to stop the browser from automatically detecting the content type
+- Configure the HTTP header `X-Content-Type-Options` with `nosniff` to stop the browser from automatically detecting content types
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-### Part II.
+### Part II. (Diagram)
 
 ![](./payments.png)
