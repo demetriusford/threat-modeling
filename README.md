@@ -35,4 +35,4 @@
 
 ### Part II. (Diagram)
 
-![](./payments.png)
+![](./assets/dfd.png)
