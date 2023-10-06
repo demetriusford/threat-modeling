@@ -19,10 +19,10 @@
 - Decommission all unmaintained servers (this could potentially leak the service's infrastructure)
 
 **Q**: Does the WAF mitigate the XSS risk to any degree?  
-**A**: A WAF can mitigate against *some* XSS injections. It's particularly effective against catching stored and reflective XSS. However, a stored DOM-based XSS would never receive the input from the browser, rendering server-side filters useless. Likewise, many 0-day [disclosures](https://github.com/waf-bypass-maker/waf-community-bypasses/blob/main/payloads.twitter.csv) are made publicly available for security professionals 
+    **A**: A WAF can mitigate against *some* XSS injections. It's particularly effective against catching stored and reflective XSS. However, a stored DOM-based XSS would never receive the input from the browser, rendering server-side filters useless. Likewise, many 0-day [disclosures](https://github.com/waf-bypass-maker/waf-community-bypasses/blob/main/payloads.twitter.csv) are made publicly available to security professionals 
 
 **Q**: What other activities do you think may need to occur here?  
-**A**: WAFs are a compensating control that need to be fine tuned to ensure they work effectively. With this in mind, here are some key recommendations:
+  **A**: WAFs are a compensating control that needs to be fine tuned to ensure they work effectively. With this in mind, here are some key recommendations:
 
 - Check if HTML escaping has been disabled in the web application's framework
 - Check the source code for any variables that might be marked as "safe"
